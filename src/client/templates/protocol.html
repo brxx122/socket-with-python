@@ -1,0 +1,202 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="col-sm-12">
+	<h3 class="page-header">类HTTP协议</h3>
+</div>
+
+
+<div class="col-sm-12">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			协议构成
+		</div>
+		<!-- /.panel-heading -->
+		<div class="panel-body">
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#request" data-toggle="tab" aria-expanded="true">请求报文</a>
+				</li>
+				<li class=""><a href="#reponse" data-toggle="tab" aria-expanded="false">响应报文</a>
+				</li>
+			</ul>
+
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="tab-pane fade active in" id="request">
+					<div class="col-sm-12">
+						<h4>Request</h4>
+						<table class="table table-striped table-bordered table-hover">
+							<thead>
+								<tr>
+									<th style='text-align: center;'>Method</th>
+									<th style='text-align: center;'>URI</th>
+									<th style='text-align: center;'>Version</th>
+									<th style='text-align: center;'>换行Ctrl</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style='text-align: center;'>ADD、DELETE、MODIFY、CHECK、ALL、REMOVE, UPLOAD、DOWNLOAD、DIR</td>
+									<td style='text-align: center;'>/document/student.txt</td>
+									<td style='text-align: center;'>MyHTTP</td>
+									<td style='text-align: center;'>\r\n</td>
+								</tr>
+							</tbody>
+						</table>
+						<table class="table table-striped table-bordered table-hover">
+							<thead>
+								<tr>
+									<th style='text-align: center;'>Key</th>
+									<th style='text-align: center;'>冒号分割</th>
+									<th style='text-align: center;'>Value</th>
+									<th style='text-align: center;'>换行Ctrl</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style='text-align: center;'>Length（必须）</td>
+									<td style='text-align: center;'>:</td>
+									<td style='text-align: center;'>100</td>
+									<td style='text-align: center;'>\r\n</td>
+								</tr>
+								<tr>
+									<td style='text-align: center;'>ID</td>
+									<td style='text-align: center;'>:</td>
+									<td style='text-align: center;'>20</td>
+									<td style='text-align: center;'>\r\n</td>
+								</tr>
+								<tr>
+									<td style='text-align: center;'>Name</td>
+									<td style='text-align: center;'>:</td>
+									<td style='text-align: center;'>John</td>
+									<td style='text-align: center;'>\r\n</td>
+								</tr>
+								<tr>
+									<td style='text-align: center;'>Picture</td>
+									<td style='text-align: center;'>:</td>
+									<td style='text-align: center;'>image\head\20.jpg</td>
+									<td style='text-align: center;'>\r\n</td>
+								</tr>
+								<tr>
+									<td style='text-align: center;'>fhead</td>
+									<td style='text-align: center;'>:</td>
+									<td style='text-align: center;'>20.jpg</td>
+									<td style='text-align: center;'>\r\n</td>
+								</tr>
+								<tr>
+									<td style='text-align: center;'>\r\n</td>
+									<td style='text-align: center;'></td>
+									<td style='text-align: center;'></td>
+									<td style='text-align: center;'></td>
+								</tr>
+							</tbody>
+						</table>
+						<table class="table table-striped table-bordered table-hover">
+							<thead>
+								<tr>
+									<th style='text-align: center;'>Content</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style='text-align: center;'>文件内容</td>
+								<tr>
+									<td style='text-align: center;'>......</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- ./col-sm-12 -->
+				</div>
+				<div class="tab-pane fade" id="reponse">
+					<div class="col-sm-12">
+					<h4>Reponse</h4>
+					<table class="table table-striped table-bordered table-hover">
+						<thead>
+							<tr>
+								<th style='text-align: center;'>Version</th>
+								<th style='text-align: center;'>Status</th>
+								<th style='text-align: center;'>Pharse</th>
+								<th style='text-align: center;'>换行Ctrl</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style='text-align: center;'>MyHTTP</td>
+								<td style='text-align: center;'>'200', '201', '202','400','417'</td>
+								<td style='text-align: center;'>'Lost ID and Name','Repeated ID', 'Repeaded Picture','No Modify'...</td>
+								<td style='text-align: center;'>\r\n</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="table table-striped table-bordered table-hover">
+						<thead>
+							<tr>
+								<th style='text-align: center;'>Key</th>
+								<th style='text-align: center;'>冒号分割</th>
+								<th style='text-align: center;'>Value</th>
+								<th style='text-align: center;'>换行Ctrl</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style='text-align: center;'>Length（必须）</td>
+								<td style='text-align: center;'>:</td>
+								<td style='text-align: center;'>100</td>
+								<td style='text-align: center;'>\r\n</td>
+							</tr>
+							<tr>
+								<td style='text-align: center;'>fhead</td>
+								<td style='text-align: center;'>:</td>
+								<td style='text-align: center;'>['student.txt'....1597...]</td>
+								<td style='text-align: center;'>\r\n</td>
+							</tr>
+							<tr>
+								<td style='text-align: center;'>ID</td>
+								<td style='text-align: center;'>:</td>
+								<td style='text-align: center;'>20</td>
+								<td style='text-align: center;'>\r\n</td>
+							</tr>
+							<tr>
+								<td style='text-align: center;'>Name</td>
+								<td style='text-align: center;'>:</td>
+								<td style='text-align: center;'>John</td>
+								<td style='text-align: center;'>\r\n</td>
+							</tr>
+							<tr>
+								<td style='text-align: center;'>......</td>
+								<td style='text-align: center;'>......</td>
+								<td style='text-align: center;'>......</td>
+								<td style='text-align: center;'>......</td>
+							</tr>
+							<tr>
+								<td style='text-align: center;'>\r\n</td>
+								<td style='text-align: center;'></td>
+								<td style='text-align: center;'></td>
+								<td style='text-align: center;'></td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="table table-striped table-bordered table-hover">
+						<thead>
+							<tr>
+								<th style='text-align: center;'>Content</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style='text-align: center;'>文件内容</td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.panel-body -->
+	</div>
+</div>
+				
+
+{% endblock %}

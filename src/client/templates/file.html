@@ -1,0 +1,169 @@
+﻿{% extends "layout.html" %}
+{% block content %}
+
+<div class="col-sm-12">
+	<h3 class="page-header">文件操作</h3>
+</div>
+<div class="col-sm-12">
+	<div class="col-sm-12">
+		{% include "error_msg.html" %}
+		{% include "success_msg.html" %}
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					发送请求
+				</div>
+				<!-- /.panel-heading -->
+				<div class="panel-body">
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs">
+						<li {% if page == 'check' %}class="active"{% endif %}><a href="#check" data-toggle="tab" aria-expanded="true">CHECK</a>
+						</li>
+						<li {% if page == 'add' %}class="active"{% endif %}><a href="#add" data-toggle="tab" aria-expanded="false">ADD</a>
+						</li>
+						<li {% if page == 'delete' %}class="active"{% endif %}><a href="#delete" data-toggle="tab" aria-expanded="false">DELETE</a>
+						</li>
+						<li {% if page == 'modify' %}class="active"{% endif %}><a href="#modify" data-toggle="tab" aria-expanded="false">MODIFY</a>
+						</li>
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<div {% if page == 'check' %}class="tab-pane fade active in" {%else %}class="tab-pane fade"{% endif %}id="check">
+							<div class="col-sm-10">
+								
+								<h4>全部学生信息</h4>
+								<label>学生名单</label>
+								{% if all %}
+									<textarea type = 'text' name = "all" id = "all" class="form-control" rows="20">{{ all }}</textarea>
+								{% else %}
+									<textarea type = 'text' name = "all" id = "all" class="form-control" rows="5">{{ all }}</textarea>
+								{% endif %}
+								<form role="form" action="" method="POST">
+									<div class="form-group">
+									<button type="submit" name="submit" value="all_check" class="btn btn-success col-sm-2">ALL</button>
+									</div>
+								</form>
+							</div>
+							<div class="col-sm-10">
+								<div class="divider"></div>
+							</div>
+							<div class="col-sm-10">
+								<h4>单个学生信息</h4>
+								<form role="form" action="" method="POST">
+									<div class="form-group">
+										<label>ID</label>
+										<input class="form-control" id="check_id" name="check_id">
+									</div>
+									<div class="form-group">
+										<label>Name</label>
+										<input class="form-control" id="check_name" name="check_name">
+									</div>
+									<button type="submit" name="submit" value="check" class="btn btn-success col-sm-2">Check</button>
+								</form>
+							</div>
+						</div>
+						<div {% if page == 'add' %}class="tab-pane fade active in" {%else %}class="tab-pane fade"{% endif %} id="add">
+							<div class="col-sm-10">
+								<h4>增加学生条目</h4>
+								<form role="form" action="" method="POST" enctype="multipart/form-data">
+									<div class="form-group">
+										<label>ID</label>
+										<input class="form-control" id="add_id" name="add_id">
+									</div>
+									<div class="form-group">
+										<label>Name</label>
+										<input class="form-control" id="add_name" name="add_name">
+									</div>
+									<label>Picture</label>
+									<div class="form-group">
+										<p>上传图片</p>
+										<input name="input_image" type='file' class="file">
+									</div>
+									<button type="submit" name="submit" value="add" class="btn btn-success col-sm-2">Add</button>
+								</form>
+							</div>
+						</div>
+						<div {% if page == 'delete' %}class="tab-pane fade active in" {%else %}class="tab-pane fade"{% endif %} id="delete">
+							<div class="col-sm-10">
+								<h4>删除指定信息</h4>
+								<form role="form" action="" method="POST">
+									<div class="form-group">
+										<label>ID</label>
+										<input class="form-control" id="delete_id" name="delete_id">
+									</div>
+									<div class="form-group">
+										<label>Name</label>
+										<input class="form-control" id="delete_name" name="delete_name">
+									</div>													
+									<button type="submit" name="submit" value="delete" class="btn btn-success col-sm-2">Delete</button>
+								</form>
+							</div>
+						</div>
+						<div {% if page == 'modify' %}class="tab-pane fade active in" {%else %}class="tab-pane fade"{% endif %} id="modify">
+							<div class="col-sm-10">
+								<h4>修改学生信息</h4>
+								<form role="form" action="" method="POST" enctype="multipart/form-data">
+									<div class="form-group">
+										<label>SID</label>
+										<input class="form-control" id="modify_sid" name="modify_sid">
+									</div>
+									<div class="form-group">
+										<label>SName</label>
+										<input class="form-control" id="modify_sname" name="modify_sname">
+									</div>
+									<div class="form-group">
+										<label>RID</label>
+										<input class="form-control" id="modify_rid" name="modify_rid">
+									</div>
+									<div class="form-group">
+										<label>RName</label>
+										<input class="form-control" id="modify_rname" name="modify_rname">
+									</div>
+									<div class="form-group">
+										<label>RPicture</label>
+										<div class="form-group">
+											<p>上传图片</p>
+											<input name="input_image2" type='file' class="file">
+										</div>
+									</div>	
+									<button type="submit" name="submit" value="modify" class="btn btn-success col-sm-2">Modify</button>
+								</form>
+							</div>
+						</div>
+					</div>
+			</div>	
+		</div>
+	</div>
+	{% if stu_info %}
+	<div class="col-sm-12">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				学生信息
+			</div>
+			<!-- /.panel-heading -->
+			<div class="panel-body">
+				<p><label>ID:</label>&nbsp {{ stu_info['ID'] }}</p>
+				<p><label>Name:</label>&nbsp {{ stu_info['Name'] }}</p>
+				<p><label>Picture:</label>&nbsp {{ stu_info['P']|safe }}</p>
+			</div>
+		</div>
+	</div>
+	{% else %}
+	<div class="col-sm-12">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				响应报文
+			</div>
+			<!-- /.panel-heading -->
+			<div class="panel-body">
+				<textarea type = 'text' name = "Text" id = "Text" class="form-control" rows="15">{{ input }}</textarea>
+			</div>
+		</div>
+	</div>
+	{% endif %}
+</div>
+<!-- /.row -->
+</div>
+<!-- /.col-sm-12 -->
+
+{% endblock %}

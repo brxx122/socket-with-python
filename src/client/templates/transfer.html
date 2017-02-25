@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="col-sm-12">
+	<h3 class="page-header">文件传输</h3>
+</div>	
+
+<div class="col-sm-12">
+	{% include "error_msg.html" %}
+	{% include "success_msg.html" %}
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				发送请求
+			</div>
+			<!-- /.panel-heading -->
+			<div class="panel-body">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs">
+					<li {% if page == 'upload' %}class="active"{% endif %}><a href="#upload" data-toggle="tab" aria-expanded="true">Upload</a>
+					</li>
+					<li {% if page == 'download' %}class="active"{% endif %}><a href="#download" data-toggle="tab" aria-expanded="false">Download</a>
+					</li>
+					<li {% if page == 'remove' %}class="active"{% endif %}><a href="#remove" data-toggle="tab" aria-expanded="false">Remove</a>
+					</li>
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div {% if page == 'upload' %}class="tab-pane fade active in" {%else %}class="tab-pane fade"{% endif %} id="upload">
+						<div class="col-sm-10">
+							<h4>上传文件</h4>
+							<label>文件目录</label>
+							{% if dir %}
+							<textarea type = 'text' name = "dir" id = "dir" class="form-control" rows="12">{{ dir }}</textarea>
+							{% else %}
+							<textarea type = 'text' name = "dir" id = "dir" class="form-control" rows="5">{{ dir }}</textarea>
+							{% endif %}
+							<form role="form" action="" method="POST" enctype="multipart/form-data">
+								<div class="form-group">
+									<label>上传文件</label>
+									<input name="upload_file" type='file' class="file">
+								</div>
+								<button type="submit" name="submit" value="dir1" class="btn btn-success col-sm-2 ">Directory</button>
+								<button type="submit" name="submit" value="upload" class="btn btn-success col-sm-2 col-sm-offset-1">Upload</button>
+							</form>
+						</div>
+					</div>
+					<div {% if page == 'download' %}class="tab-pane fade active in" {%else %}class="tab-pane fade"{% endif %} id="download">
+						<div class="col-sm-10">
+							<h4>下载文件</h4>
+							<label>文件目录</label>
+							{% if dir %}
+							<textarea type = 'text' name = "dir" id = "dir" class="form-control" rows="12">{{ dir }}</textarea>
+							{% else %}
+							<textarea type = 'text' name = "dir" id = "dir" class="form-control" rows="5">{{ dir }}</textarea>
+							{% endif %}
+							<form role="form" action="" method="POST" enctype="multipart/form-data">
+								<div class="form-group">
+									<label>文件名称</label>
+									<input class="form-control" id="down_file" name="down_file">
+								</div>
+								<button type="submit" name="submit" value="dir2" class="btn btn-success col-sm-2 ">Directory</button>
+								<button type="submit" name="submit" value="download" class="btn btn-success col-sm-2 col-sm-offset-1">Download</button>
+							</form>
+						</div>
+					</div>
+					<div {% if page == 'remove' %}class="tab-pane fade active in" {%else %}class="tab-pane fade"{% endif %} id="remove">
+						<div class="col-sm-10">
+							<h4>删除文件</h4>
+							<label>文件目录</label>
+							{% if dir %}
+							<textarea type = 'text' name = "dir" id = "dir" class="form-control" rows="12">{{ dir }}</textarea>
+							{% else %}
+							<textarea type = 'text' name = "dir" id = "dir" class="form-control" rows="5">{{ dir }}</textarea>
+							{% endif %}
+							<form role="form" action="" method="POST" enctype="multipart/form-data">
+								<div class="form-group">
+									<label>文件名称</label>
+									<input class="form-control" id="remove_file" name="remove_file">
+								</div>
+								<button type="submit" name="submit" value="dir3" class="btn btn-success col-sm-2 ">Directory</button>
+								<button type="submit" name="submit" value="remove" class="btn btn-success col-sm-2 col-sm-offset-1">Remove</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+</div>
+<div class="col-sm-12">
+	<div class="panel panel-success">
+		<div class="panel-heading">
+			响应报文
+		</div>
+		<!-- /.panel-heading -->
+		<div class="panel-body">
+			<textarea type = 'text' name = "Text" id = "Text" class="form-control" rows="5">{{ input }}</textarea>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

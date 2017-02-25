@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Client Platform</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../static/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../static/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	<!-- Custom fileinput -->
+    <link href="../static/vendor/bootstrap-fileinput/fileinput.min.css" rel="stylesheet" type="text/css">
+	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+        <!-- Page Content -->
+            <div class="container">
+				<!-- Navigation -->
+				<div class='row'>
+					<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="index.html">Client v1.0</a>
+						</div>
+						<!-- /.navbar-header -->
+						<ul class="nav navbar-top-links navbar-right">
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true">
+									<i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+								</a><div class="dropdown-backdrop"></div>
+								<ul class="dropdown-menu dropdown-messages">
+									<li>
+										<a href="/protocol">
+											<div>
+												<strong>Procotol</strong>
+											</div>
+											<div style="font-family:Microsoft YaHei">类HTTP协议报文格式说明</div>
+										</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<a href="/file">
+											<div>
+												<strong>File Handle</strong>
+												<span class="pull-right text-muted">
+													<em>Go and Try</em>
+												</span>
+											</div>
+											<div style="font-family:Microsoft YaHei">服务器保存指定学生名单<br>进行增加、删除、查看操作</div>
+										</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<a href="/transfer">
+											<div>
+												<strong>File transfer</strong>
+												<span class="pull-right text-muted">
+													<em>Go and Try</em>
+												</span>
+											</div>
+											<div style="font-family:Microsoft YaHei">实现简单的文件传输</div>
+										</a>
+									</li>
+								</ul>
+								<!-- /.dropdown-messages -->
+							</li>
+							<!-- /.dropdown -->
+						</ul>
+						<!-- /.navbar-top-links -->
+					</nav>
+				</div>
+
+				{% block content %}{% endblock %}	
+
+				<!-- /.row -->
+				</div>
+				<!-- /.container-->
+
+
+    <!-- jQuery -->
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+
+	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+	<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="//code.highcharts.com/highcharts.js"></script>
+	<script>if (window.module) module = window.module;</script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../static/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../static/dist/js/sb-admin-2.js"></script>
+	
+	<!-- fileinput JavaScript -->
+    <script src="../static/vendor/bootstrap-fileinput/fileinput.min.js"></script>
+	<script src="../static/vendor/bootstrap-fileinput/fileinput_locale_zh.js"></script>
+
+</body>
+
+</html>
