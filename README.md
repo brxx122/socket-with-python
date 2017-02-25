@@ -10,8 +10,7 @@
 ---
 1. Python 2.7
 2. flask模块
-   > \> pip install flask
-
+  > pip install flask
 
 
 
